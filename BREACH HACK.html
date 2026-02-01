@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <title>NEON BREACH</title>
+
+  <!--CSS-->
+  <link rel="stylesheet" href="Style.css">
+
+  <!--JS-->
+  <script type="module" src="js/main.js"></script>
+</head>
+
+<body>
+
+  <div id="app">
+    <!--===================
+     HEADER:ミッション表示   
+     ====================-->
+    <header id="mission">
+      <span>MISSION: FIREWALL BYPASS 1/3</span>
+    </header>
+
+    <!--===================
+      MAIN:ログ＋パネル  
+      ===================-->
+    <main>
+      <!--=================
+        左:ログ
+        =================-->
+      <section id="log">
+        <p>&gt; SYSTEM BOOTING </p>
+        <P>&gt; CONNECTION ESTABLISHED</P>
+        <p>&gt; WAITING FOR INPUT... </p>
+      </section>
+      <!--=================
+        右:操作パネル
+        =================-->
+      <section id="panel">
+        <h2>COMMAND PANEL</h2>
+        <!--ミッション１-->
+        <div class="mission mission1">
+          <p>SELECT COMMANDS IN CORRECT ORDER</p>
+          <div class="buttons">
+            <button id="cmd-open">open_port</button>
+            <button id="cmd-sudo">sudo_access</button>
+            <button id="cmd-inject">inject_payload</button>
+          </div>
+        </div>
+
+        <!--ミッション２-->
+        <div class="mission mission2 hidden">
+          <p>DECRYPT THE KEYWORD</p>
+          <div class="puzzle">
+            <button>E</button>
+            <button>R</button>
+            <button>C</button>
+            <button>A</button>
+            <button>S</button>
+          </div>
+          <button id="verify">VERIFY</button>
+        </div>
+
+        <!--ミッション３-->
+        <div class="mission mission3 hidden">
+          <p>FINAL AUTHORIZATION</p>
+          <p class="key-display">KEY:Q E F J </p>
+          <input type="text" id="auth-input" placeholder="ENTER KEY">
+          <p class="timer">TIME LEFT: 5.0S</p>
+        </div>
+
+        <!--結果画面-->
+        <div class="result hidden" id="result-screen">
+          <h2 id="result-title"></h2>
+          <p id="result-massage"></p>
+          <button id="restart">RESTART</button>
+        </div>
+
+      </section>
+    </main>
+
+    <!--================
+      FOOTER:状態表示
+      ================-->
+    <footer id="status">
+      <span>PROGRESS: 0%</span>
+      <span>ALERT: 0 / 3</span>
+    </footer>
+  </div>
+
+</body>
+
+</html>

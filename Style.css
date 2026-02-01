@@ -1,0 +1,185 @@
+* {
+    box-sizing: border-box;
+}
+
+/*=======================
+配色・フォント
+=======================*/
+body {
+
+    background: radial-gradient(ellipse at center, #050b14 0%, #000 70%);
+    color: #7cffcb;
+    font-family: "Courier New", monospace;
+}
+
+/*=======================
+アプリ全体
+=======================*/
+#app {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/*======================
+　ヘッダー
+======================*/
+#mission {
+    padding: 10px;
+    border-bottom: 1px solid #0f0;
+}
+
+/*======================
+ ログ⁺パネル
+======================*/
+main {
+    flex: 1;
+    display: flex;
+}
+
+/* 左：ログ*/
+#log {
+    width: 50%;
+    padding: 10px;
+    border-right: 1px solid #0f0;
+    overflow-y: auto;
+}
+
+/* 右：操作パネル*/
+#panel {
+    width: 50%;
+    padding: 10px;
+}
+
+/*結果*/
+.result {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.result h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    text-shadow: 0 0 12px rgba(255, 255, 255, 0.7);
+}
+
+/*====================
+ ミッション共通
+====================*/
+.mission {
+    margin-top: 10px;
+}
+
+/*ボタン配置*/
+.buttons button,
+.puzzle button,
+#verify {
+    margin: 5px;
+}
+
+/*====================
+ フッター
+====================*/
+#status {
+    padding: 10px;
+    border-top: 1px solid #0f0;
+    display: flex;
+    justify-content: space-between;
+}
+
+/*====================
+ 非表示
+====================*/
+.hidden {
+    display: none;
+}
+
+/*見出し*/
+#mission span,
+#panel h2 {
+    color: #9cfbff;
+    text-shadow: 0 0 8px rgba(156, 251, 255, 0.6);
+}
+
+/*=====================
+ ネオン枠
+=====================*/
+#mission,
+#log,
+#panel,
+#status {
+    border-color: #22f3ff;
+    box-shadow:
+        0 0 6px rgba(34, 243, 255, 0.5),
+        inset 0 0 6px rgba(34, 243, 255, 0.3);
+}
+
+/*=====================
+ ボタン(ネオン)
+=====================*/
+button {
+    background: transparent;
+    color: #7cffcb;
+    border: 1px solid #22f3ff;
+    padding: 8px 14px;
+    cursor: pointer;
+    box-shadow: 0 0 6px rgba(34, 243, 255, 0.5);
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 0 12px rgba(34, 243, 255, 0.9);
+}
+
+/*=====================
+ ログ表示
+=====================*/
+#log p {
+    margin: 4px 0;
+    opacity: 0.9;
+}
+
+/*=====================
+ scanline（走査線）
+=====================*/
+#app::after {
+    content: "";
+    pointer-events: none;
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(rgba(255, 255, 255, 0.03) 1px,
+            transparent 1px);
+    background-size: 100% 3px;
+    mix-blend-mode: overlay;
+}
+
+/*=====================
+ 警告
+=====================*/
+.alert {
+    color: #ff0000;
+    animation: shake 0.3s linear 2;
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-2px);
+    }
+
+    50% {
+        transform: translateX(2px);
+    }
+
+    75% {
+        transform: translateX(-2px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
